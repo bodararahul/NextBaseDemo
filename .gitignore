@@ -1,0 +1,9 @@
+.env.local
+.env.*.local
+node_modules
+.next
+tsconfig.tsbuildinfo
+./supabase/.temp/project-ref
+./supabase/.DS_Store
+./analyze
+.vercel

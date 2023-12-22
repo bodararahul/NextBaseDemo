@@ -1,0 +1,29 @@
+name: Sync Fork
+
+on:
+  schedule:
+    - cron: '0 */3 * * *'
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check repository
+        run: |
+          if [[ "${{ github.repository }}" != "imbhargav5/nextbase-pro" ]]; then
+            echo "Workflow can only run on imbhargav5/nextbase-pro"
+            exit 1
+          fi
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Sync fork
+        uses: repo-sync/github-sync@v2
+        with:
+          source_repo: 'https://${{secrets.NEXTBASE_SYNC_REPO_SECRET}}@github.com/usenextbase/nextbase-pro.git'
+          source_branch: 'main'
+          destination_branch: 'main'
+          github_token: ${{ secrets.NEXTBASE_SYNC_REPO_SECRET }}

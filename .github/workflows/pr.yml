@@ -1,0 +1,30 @@
+name: Node CI Pull request
+concurrency:
+  group: pr-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+on:
+  pull_request:
+    branches:
+      - '**'
+
+jobs:
+  # build:
+  #   timeout-minutes: 20
+
+  #   runs-on: ubuntu-latest
+
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - uses: ./.github/actions/ci-setup
+  #     - name: ts-check && build
+  #       run: yarn run tsc
+
+  vitest:
+    timeout-minutes: 20
+
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/ci-setup
+      - name: test
+        run: yarn run test

@@ -1,0 +1,19 @@
+{
+  "ignorePatterns": [
+    "**/node_modules/**",
+    "**/*.tests.{js,jsx,ts,tsx}",
+    "**/*.test.{js,jsx,ts,tsx}",
+    "**/*.spec.{js,jsx,ts,tsx}",
+    "**/tests/**",
+    "**/__tests__/**",
+    "**/*.d.ts"
+  ],
+  "entry": [
+    "src/pages/**/*.{ts,tsx}",
+    "src/app/**/{page,route,layout,error,loading,default}.{ts,tsx}"
+  ],
+  "ignoreUnimported": [],
+  "ignoreUnused": ["next", "react", "react-dom"],
+  "ignoreUnresolved": [],
+  "respectGitignore": true
+}
