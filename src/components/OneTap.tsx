@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import { signInWithProvider } from "@/data/auth/auth";
 import { supabaseUserClientComponentClient } from "@/supabase-clients/user/supabaseUserClientComponentClient";

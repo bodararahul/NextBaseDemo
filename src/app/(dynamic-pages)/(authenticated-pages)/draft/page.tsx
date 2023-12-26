@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import React, { useState, useRef, useEffect } from "react";
 // import supabase from "@/connection/supabaseClient";
@@ -26,19 +27,26 @@ import { GrGallery } from "react-icons/gr";
 import { PiSubtitlesThin } from "react-icons/pi";
 import { v4 as uuidv4 } from "uuid";
 import { supabaseUserClientComponentClient } from "@/supabase-clients/user/supabaseUserClientComponentClient";
+import Editor from "@/components/Editor";
 
 const Draft = () => {
-  const [sidebar, setSidebar] = useState(true);
-  const [pinned, setPinned] = useState(true);
+  const [sidebar, setSidebar] = useState<boolean>(true);
+  const [pinned, setPinned] = useState<boolean>(true);
   const [pinnedDrafts, setPinnedDrafts] = useState<any>([]);
-  const [drafts, setDrafts] = useState(true);
+  const [drafts, setDrafts] = useState<boolean>(true);
   const [addDrafts, setAddDrafts] = useState<any>();
   const [selectedData, setSelectedData] = useState<any>(null);
-  const [publish, setPublish] = useState(true);
-  const [showSubtitle, setShowSubtitle] = useState(false);
+  const [publish, setPublish] = useState<boolean>(true);
+  const [showSubtitle, setShowSubtitle] = useState<boolean>(false);
   const [postData, setPostData] = useState<any>();
   const [session, setSession] = useState<any>();
   const supabase = supabaseUserClientComponentClient
+  console.log("Pinned: ", pinnedDrafts);
+  console.log("Drafts: ", addDrafts);
+  console.log("Selected: ", selectedData);
+  console.log("Post: ", postData);
+  console.log("Session: ", session);
+
 
   const router = useRouter();
 
@@ -693,7 +701,7 @@ const Draft = () => {
                     </button>
                   </div>
                 )}
-
+                {/* <Editor /> */}
                 <textarea
                   name="description"
                   id="description"

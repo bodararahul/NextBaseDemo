@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
@@ -18,6 +18,7 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const router = useRouter()
   const pathname = usePathname();
+  const activeLinkStyle = 'text-[#2563eb]';
   const isHome = pathname ? pathname === '/' : false;
 
   const navigation: Array<{
@@ -28,11 +29,11 @@ export default function Navbar() {
       { name: 'My Feed', href: '/dashboard' },
       {
         name: 'Discussions',
-        href: '/blog',
+        href: '/discussions',
       },
       {
         name: 'Headless',
-        href: '/changelog',
+        href: '/headless',
       },
       {
         name: 'More',
@@ -79,7 +80,9 @@ export default function Navbar() {
           {navigation.map(({ name, href }) => (
             <li
               key={name}
-              className="text-gray-500 dark:text-gray-300 font-regular text-sm hover:text-gray-800 dark:hover:text-gray-500"
+              className={`font-regular text-sm hover:text-gray-800 dark:hover:text-gray-500 ${
+              pathname === href ? activeLinkStyle : ''
+            }`}
             >
               <Link href={href}>{name}</Link>
             </li>

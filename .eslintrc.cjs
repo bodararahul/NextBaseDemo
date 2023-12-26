@@ -5,6 +5,8 @@ var ruleOverrides = {
   '@typescript-eslint/no-unused-vars': 'warn',
 };
 var srcRuleOverrides = {
+  '@typescript-eslint/no-unused-vars': 'warn',
+  '@typescript-eslint/no-explicit-any': 'off',
   'no-restricted-imports': [
     'error',
     {
