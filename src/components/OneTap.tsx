@@ -19,7 +19,7 @@ const OneTap = () => {
             if (googleWindow.google && googleWindow.google.accounts) {
                 googleWindow.google.accounts.id.initialize({
                     client_id:
-                        "722554077075-t5fq8o8s832ea4ifbn0hlvoch66dmt1c.apps.googleusercontent.com",
+                        "442919343804-gl6fu2ga514bn49mkoq9df00tee0kcml.apps.googleusercontent.com",
                 });
                 if (googleWindow.google.accounts.id.prompt) {
                     googleWindow.google.accounts.id.prompt((notifications: any) => {
