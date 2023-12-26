@@ -41,13 +41,7 @@ const Draft = () => {
   const [postData, setPostData] = useState<any>();
   const [session, setSession] = useState<any>();
   const supabase = supabaseUserClientComponentClient
-  console.log("Pinned: ", pinnedDrafts);
-  console.log("Drafts: ", addDrafts);
-  console.log("Selected: ", selectedData);
-  console.log("Post: ", postData);
-  console.log("Session: ", session);
-
-
+ 
   const router = useRouter();
 
   const fileInputRef = useRef<HTMLInputElement>(null);
